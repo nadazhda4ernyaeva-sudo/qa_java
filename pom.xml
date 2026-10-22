@@ -14,9 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- БЛОК ЗАВИСИМОСТЕЙ: JUnit и Mockito -->
     <dependencies>
-        <!-- JUnit 5 для тестов -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -24,7 +22,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Mockito для создания моков -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -42,8 +39,7 @@
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
-            <!-- Ваша компиляция Java 11 -->
-            <plugin>
+           <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -53,7 +49,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Плагин JaCoCo для проверки покрытия тестами -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
