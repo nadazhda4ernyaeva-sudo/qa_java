@@ -5,8 +5,13 @@ import java.util.List;
 public class Lion {
 
     boolean hasMane;
+    // Оставляем поле, но теперь не создаем объект сразу
+    private final Feline feline;
 
-    public Lion(String sex) throws Exception {
+    // Добавляем Feline в параметры конструктора
+    public Lion(String sex, Feline feline) throws Exception {
+        this.feline = feline; // Сохраняем переданную зависимость
+
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
@@ -15,8 +20,6 @@ public class Lion {
             throw new Exception("Используйте допустимые значения пола животного - самей или самка");
         }
     }
-
-    Feline feline = new Feline();
 
     public int getKittens() {
         return feline.getKittens();

@@ -1,0 +1,41 @@
+package com.example;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@ExtendWith(MockitoExtension.class) // Подключаем Mockito к JUnit 5
+public class CatTest {
+
+    @Mock
+    Feline felineMock; // Создаем мок-объект для Feline
+
+    @Test
+    public void getSoundReturnsCorrectString() {
+        Cat cat = new Cat(felineMock);
+        String expectedSound = "Мяу";
+
+        String actualSound = cat.getSound();
+
+        assertEquals(expectedSound, actualSound, "Кот должен говорить Мяу");
+    }
+
+    @Test
+    public void getFoodReturnsCorrectList() throws Exception {
+        Cat cat = new Cat(felineMock);
+        List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
+
+        // Обучаем мок: когда вызовется eatMeat(), вернуть наш список еды
+        Mockito.when(felineMock.eatMeat()).thenReturn(expectedFood);
+
+        List<String> actualFood = cat.getFood();
+
+        assertEquals(expectedFood, actualFood, "Метод getFood должен возвращать список еды от predator");
+    }
+}
