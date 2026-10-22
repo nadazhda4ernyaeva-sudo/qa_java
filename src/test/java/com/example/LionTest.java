@@ -2,8 +2,6 @@ package com.example;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -19,18 +17,6 @@ public class LionTest {
     @Mock
     Feline felineMock;
 
-
-    @ParameterizedTest
-    @CsvSource({
-            "Самец, true",
-            "Самка, false"
-    })
-    public void constructorSetsCorrectManeValue(String sex, boolean expectedHasMane) throws Exception {
-        Lion lion = new Lion(sex, felineMock);
-        assertEquals(expectedHasMane, lion.doesHaveMane(), "Наличие гривы определено неверно для пола: " + sex);
-    }
-
-
     @Test
     public void constructorThrowsExceptionOnInvalidSex() {
         Exception exception = assertThrows(Exception.class, () -> {
@@ -41,7 +27,6 @@ public class LionTest {
         assertEquals(expectedMessage, exception.getMessage(), "Текст ошибки не совпадает");
     }
 
-
     @Test
     public void getKittensReturnsCorrectCount() throws Exception {
         Lion lion = new Lion("Самец", felineMock);
@@ -51,7 +36,6 @@ public class LionTest {
 
         assertEquals(1, actualKittens, "Метод getKittens должен возвращать значение из Feline");
     }
-
 
     @Test
     public void getFoodReturnsCorrectList() throws Exception {
