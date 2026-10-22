@@ -5,12 +5,12 @@ import java.util.List;
 public class Lion {
 
     boolean hasMane;
-    // Оставляем поле, но теперь не создаем объект сразу
+
     private final Feline feline;
 
-    // Добавляем Feline в параметры конструктора
+
     public Lion(String sex, Feline feline) throws Exception {
-        this.feline = feline; // Сохраняем переданную зависимость
+        this.feline = feline;
 
         if ("Самец".equals(sex)) {
             hasMane = true;

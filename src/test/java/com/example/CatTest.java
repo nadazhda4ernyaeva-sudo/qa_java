@@ -10,11 +10,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(MockitoExtension.class) // Подключаем Mockito к JUnit 5
+@ExtendWith(MockitoExtension.class)
 public class CatTest {
 
     @Mock
-    Feline felineMock; // Создаем мок-объект для Feline
+    Feline felineMock;
 
     @Test
     public void getSoundReturnsCorrectString() {
@@ -31,7 +31,7 @@ public class CatTest {
         Cat cat = new Cat(felineMock);
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
 
-        // Обучаем мок: когда вызовется eatMeat(), вернуть наш список еды
+
         Mockito.when(felineMock.eatMeat()).thenReturn(expectedFood);
 
         List<String> actualFood = cat.getFood();

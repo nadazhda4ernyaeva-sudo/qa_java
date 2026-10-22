@@ -17,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class LionTest {
 
     @Mock
-    Feline felineMock; // Мокаем Feline, чтобы изолировать Lion
+    Feline felineMock;
 
-    // 1 и 2. Параметризованный тест для проверки веток "Самец" и "Самка"
+
     @ParameterizedTest
     @CsvSource({
             "Самец, true",
@@ -30,7 +30,7 @@ public class LionTest {
         assertEquals(expectedHasMane, lion.doesHaveMane(), "Наличие гривы определено неверно для пола: " + sex);
     }
 
-    // 3. Тест на ветку исключения (некорректный пол)
+
     @Test
     public void constructorThrowsExceptionOnInvalidSex() {
         Exception exception = assertThrows(Exception.class, () -> {
@@ -41,7 +41,7 @@ public class LionTest {
         assertEquals(expectedMessage, exception.getMessage(), "Текст ошибки не совпадает");
     }
 
-    // 4. Тест метода getKittens() с использованием мока
+
     @Test
     public void getKittensReturnsCorrectCount() throws Exception {
         Lion lion = new Lion("Самец", felineMock);
@@ -52,7 +52,7 @@ public class LionTest {
         assertEquals(1, actualKittens, "Метод getKittens должен возвращать значение из Feline");
     }
 
-    // 5. Тест метода getFood() с использованием мока
+
     @Test
     public void getFoodReturnsCorrectList() throws Exception {
         Lion lion = new Lion("Самка", felineMock);

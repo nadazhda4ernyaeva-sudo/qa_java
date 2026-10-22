@@ -40,7 +40,6 @@ public class FelineTest {
         assertEquals(expectedKittensCount, actualKittensCount, "По умолчанию количество котят должно быть 1");
     }
 
-    // Параметризованный тест для метода с аргументом
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 5, 10, 100})
     public void getKittensWithArgumentReturnsCorrectCount(int kittensCount) {
