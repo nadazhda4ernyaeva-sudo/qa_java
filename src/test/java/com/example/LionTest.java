@@ -2,14 +2,10 @@ package com.example;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -19,28 +15,16 @@ public class LionTest {
     @Mock
     Feline felineMock;
 
-
-    @ParameterizedTest
-    @CsvSource({
-            "Самец, true",
-            "Самка, false"
-    })
-    public void constructorSetsCorrectManeValue(String sex, boolean expectedHasMane) throws Exception {
-        Lion lion = new Lion(sex, felineMock);
-        assertEquals(expectedHasMane, lion.doesHaveMane(), "Наличие гривы определено неверно для пола: " + sex);
-    }
-
-
     @Test
     public void constructorThrowsExceptionOnInvalidSex() {
         Exception exception = assertThrows(Exception.class, () -> {
             new Lion("Неизвестно", felineMock);
         });
 
-        String expectedMessage = "Используйте допустимые значения пола животного - самей или самка";
+        // Проверь букву "ц" в слове "самец" в твоем Lion.java
+        String expectedMessage = "Используйте допустимые значения пола животного - самец или самка";
         assertEquals(expectedMessage, exception.getMessage(), "Текст ошибки не совпадает");
     }
-
 
     @Test
     public void getKittensReturnsCorrectCount() throws Exception {
@@ -51,7 +35,6 @@ public class LionTest {
 
         assertEquals(1, actualKittens, "Метод getKittens должен возвращать значение из Feline");
     }
-
 
     @Test
     public void getFoodReturnsCorrectList() throws Exception {

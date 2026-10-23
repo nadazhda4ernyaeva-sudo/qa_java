@@ -1,11 +1,7 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FelineTest {
@@ -38,15 +34,5 @@ public class FelineTest {
         int actualKittensCount = feline.getKittens();
 
         assertEquals(expectedKittensCount, actualKittensCount, "По умолчанию количество котят должно быть 1");
-    }
-
-    @ParameterizedTest
-    @ValueSource(ints = {0, 1, 5, 10, 100})
-    public void getKittensWithArgumentReturnsCorrectCount(int kittensCount) {
-        Feline feline = new Feline();
-
-        int actualKittensCount = feline.getKittens(kittensCount);
-
-        assertEquals(kittensCount, actualKittensCount, "Метод должен возвращать переданное количество котят");
     }
 }

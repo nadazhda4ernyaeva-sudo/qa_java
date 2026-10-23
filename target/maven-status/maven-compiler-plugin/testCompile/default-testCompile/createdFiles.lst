@@ -1,3 +1,5 @@
 com\example\FelineTest.class
 com\example\CatTest.class
+com\example\LionParameterizedTest.class
+com\example\FelineParameterizedTest.class
 com\example\LionTest.class
