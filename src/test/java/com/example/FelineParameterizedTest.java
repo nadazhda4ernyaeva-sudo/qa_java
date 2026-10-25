@@ -16,3 +16,5 @@ public class FelineParameterizedTest {
         assertEquals(kittensCount, actualKittensCount, "Метод должен возвращать переданное количество котят");
     }
 }
+
+

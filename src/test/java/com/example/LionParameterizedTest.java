@@ -19,3 +19,5 @@ public class LionParameterizedTest {
         assertEquals(expectedHasMane, lion.doesHaveMane(), "Наличие гривы определено неверно для пола: " + sex);
     }
 }
+
+

@@ -36,3 +36,5 @@ public class FelineTest {
         assertEquals(expectedKittensCount, actualKittensCount, "По умолчанию количество котят должно быть 1");
     }
 }
+
+
