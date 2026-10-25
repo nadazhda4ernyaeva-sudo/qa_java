@@ -39,3 +39,5 @@ public class CatTest {
         assertEquals(expectedFood, actualFood, "Метод getFood должен возвращать список еды от predator");
     }
 }
+
+

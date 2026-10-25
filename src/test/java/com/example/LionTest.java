@@ -47,3 +47,5 @@ public class LionTest {
         assertEquals(expectedFood, actualFood, "Метод getFood должен возвращать рацион хищника из Feline");
     }
 }
+
+
